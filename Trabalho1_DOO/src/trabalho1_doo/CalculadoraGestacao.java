@@ -9,7 +9,6 @@ import java.time.LocalDate;
 abstract class CalculadoraGestacao implements ICalculadora {
     protected LocalDate dataBase;
     
-    // Função que a classe implementa com obrigatoriedade da Interface
     public CalculadoraGestacao(LocalDate dataBase) {
         this.dataBase = dataBase;
     }

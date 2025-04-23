@@ -15,7 +15,8 @@ public class Main {
 
         // Lista para armazenar o histórico
         List<String> historico = new ArrayList<>();
-
+        String input = null;
+        do{
         System.out.println("Escolha o tipo de cálculo:");
         System.out.println("1 - Por DUM");
         System.out.println("2 - Por Data de Referência");
@@ -43,6 +44,7 @@ public class Main {
             int semanas = entrada.nextInt();
             System.out.println("Informe os dias:");
             int dias = entrada.nextInt();
+            entrada.nextLine(); // Consome o \n que ficou no buffer
             calculadora = new CalculadoraPorReferencia(dataRef, semanas, dias);
         } else {
             System.out.println("Opção inválida.");
@@ -62,11 +64,11 @@ public class Main {
             for (String registro : historico) {
                 System.out.println(registro);
             }
-
+            System.out.println("Deseja calcular a IG de uma nova paciente? ");
+            input = entrada.nextLine();
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
-        } finally {
-            entrada.close();
         }
+        }while(input.equalsIgnoreCase("sim"));
     }
 }
